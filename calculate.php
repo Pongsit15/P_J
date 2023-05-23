@@ -1,3 +1,35 @@
+<?php 
+
+    include_once('Connection.php');
+
+    $insertdata = new DB_con();
+
+    if (isset($_POST['insert'])) {
+        $Thai = $_POST['Thai'];
+        $China = $_POST['China'];
+        $number1 = $_POST['number1'];
+        $ttype = $_POST['ttype'];
+        $number2 = $_POST['number2'];
+        $number3 = $_POST['number3'];
+        $number4 = $_POST['number4'];
+        $number5 = $_POST['number5'];
+        $number6 = $_POST['number6'];
+        $ttime = $_POST['ttime'];
+        
+        $sql = $insertdata->insert($Thai, $China, $number1,$ttype,$number2,$number3,$number4,$number5,$number6,$ttime);
+
+        if ($sql) {
+            echo "<script>alert('แทรกบันทึกเรียบร้อยแล้ว!');</script>";
+            echo "<script>window.location.href='calculate.php'</script>";
+        } else {
+            echo "<script>alert('บางอย่างผิดพลาด! กรุณาลองอีกครั้ง!');</script>";
+            echo "<script>window.location.href='insert.php'</script>";
+        }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,206 +70,184 @@
                     </svg> เข้าสู่ระบบ</a></li>
         </ul>
     </header><br>
+
     <main>
 
     <div class="container marketing">
-        <div class="row g-5">
-            <div class="col-md-5 col-lg-4 order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">รายการคำนวณ</span>
-                    <span class="badge bg-primary rounded-pill">3</span>
-                </h4>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">ราคาสินค้าต่อชิ้น </h6>
-                            <small class="text-body-secondary">********</small>
-                        </div>
-                        <span class="text-body-secondary">$12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">ภาษีการนำเข้า </h6>
-                            <small class="text-body-secondary">7%</small>
-                        </div>
-                        <span class="text-body-secondary">$8</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">ผลกําไรสุทธิ</h6>
-                            <small class="text-body-secondary">#</small>
-                        </div>
-                        <span class="text-body-secondary">$5</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">−$5</span>
-                    </li>
-                </ul>
+<!-------------------------------------------------------------------->
 
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                    </div>
-                </form>
+
+           <?php 
+
+          //     include_once('Connection.php');
+          //     $fetchdata = new DB_con();
+          //     $sql = $fetchdata->fetchdata();
+          //     while($row = mysqli_fetch_array($sql)) {
+
+          // ?>
+
+<!-------------------------------------------------------------------->
+
+<div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">ผลการคำนวณ</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">เงินจีน</h6>
+              <small class="text-body-secondary">Brief description</small>
             </div>
-            <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">คำนวณค่าขนส่ง</h4>
-                <hr class="my-4">
-                <form class="needs-validation" novalidate="">
-                    <div class="row g-3">
-                        <div class="col-sm-4">
-                            <label for="firstName" class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                    height="16" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16">
-                                    <path
-                                        d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28V4.487zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927V8.539z" />
-                                </svg> สกุลเงิน ไทย</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
+            <span class="text-body-secondary"><?php echo $row['#']; ?></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">เงินไทย</h6>
+              <small class="text-body-secondary">Brief description</small>
+            </div>
+            <span class="text-body-secondary"><?php echo $row['#']; ?></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-body-secondary">Brief description</small>
+            </div>
+            <span class="text-body-secondary">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
 
-                        <div class="col-sm-2">
-                            <label for="firstName" class="form-label">อัตราแลกเปลี่ยน</label>
-                            <ul class="pagination justify-content-center">
-                                </li>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+     
+     
+      </div>             
+       
+      <?php 
 
-                                <p content-center><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
-                                    </svg></p>
-                        </div>
-                        
+//}
+//?>
+</tbody>
+</table>
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">คำนวณค่าขนส่ง</h4>
+            <hr class="my-4">
 
-                        <div class="col-sm-4">
-                            <label for="lastName" class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                    height="16" fill="currentColor" class="bi bi-currency-yen" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8.75 14v-2.629h2.446v-.967H8.75v-1.31h2.445v-.967H9.128L12.5 2h-1.699L8.047 7.327h-.086L5.207 2H3.5l3.363 6.127H4.778v.968H7.25v1.31H4.78v.966h2.47V14h1.502z" />
-                                </svg> สกุลเงิน จีน</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
-                        </div>
+            <form action="" method="post">
+                <div class="row g-3">
+                    <div class="col-sm-4">
+                        <label for="Thai" class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28V4.487zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927V8.539z" />
+                            </svg> สกุลเงิน ไทย</label>
+                        <input type="text" class="form-control" name="Thai" required>
+                    </div>
 
+                    <div class="col-sm-2">
+                        <label for="#" class="form-label">อัตราแลกเปลี่ยน</label>
+                        <ul class="pagination justify-content-center">
+                            </li>
 
-                        <div class="col-md-6">
-                            <label for="country" class="form-label">ประเภทสินค้า</label>
-                            <select class="form-select" id="country" required="">
-                                <option value="">สินค้าทั่วไป</option>
-                                <option>โทรศัพท์มือถือ</option>
-                                <option>ผ้าไหม</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="firstName" class="form-label">
-                                <path>
-                                    ราคาสินค้าต่อชิ้น*
-                            </label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                        </div>
+                            <p content-center><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
+                                </svg></p>
+                    </div>
 
 
-                        <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">ราคาขาย </label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                            <div class="invalid-feedback">
+                    <div class="col-sm-4">
+                        <label for="China" class="form-label"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-currency-yen" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.75 14v-2.629h2.446v-.967H8.75v-1.31h2.445v-.967H9.128L12.5 2h-1.699L8.047 7.327h-.086L5.207 2H3.5l3.363 6.127H4.778v.968H7.25v1.31H4.78v.966h2.47V14h1.502z" />
+                            </svg> สกุลเงิน จีน</label>
+                        <input type="text" class="form-control" name="China" required>
+                    </div>
 
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">จำนวนสินค้า</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                            <div class="invalid-feedback">
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">ภาษี</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                            <div class="invalid-feedback">
-
-                            </div>
-                        </div>
-
-                       <div class="col-md-3">
-                       <label for="cc-cvv" class="form-label">ว/ด/ป </label>
-                              <input type="datetime-local" name="event_dt" class="form-control">
-                       </div>
+                    <div class="col-md-6">
+                        <label for="#" class="form-label">ประเภทสินค้า</label>
+                        <select class="form-select" name="ttype" required="" aria-label="Default select example">
+                            <option value="สินค้าทั่วไป">สินค้าทั่วไป</option>
+                            <option value="โทรศัพท์มือถือ">โทรศัพท์มือถือ</option>
+                            <option value="ผ้าไหม">ผ้าไหม</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="number1" class="form-label"> ราคาสินค้าต่อชิ้น* </label>
+                        <input type="text" class="form-control" name="number1" required>
 
                     </div>
 
+
+                    <div class="col-md-3">
+                        <label for="number2" class="form-label"> ราคาขาย </label>
+                        <input type="text" class="form-control" name="number2" required>
+                        <div class="invalid-feedback">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="number3" class="form-label">จำนวนสินค้า</label>
+                        <input type="text" class="form-control" name="number3" required>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="number4" class="form-label">ภาษี</label>
+                        <input type="text" class="form-control" name="number6" required>
+
+                    </div>
+
+                     <div class="col-md-3"> 
+                                <label for="ttime" class="form-label">ว/ด/ป </label>
+                                <input type="datetime-local" name="ttime" class="form-control">
+                            </div>
+
+                    <div class="col-md-4">
+                        <label for="number4" class="form-label"> ค่านำเข้าสินค้าเข้าโกดังจีน </label>
+                        <input type="text" class="form-control" name="number4" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="number5" class="form-label">ค่านำเข้าสินค้าเข้าโกดังไทย</label>
+                        <input type="text" class="form-control" name="number5" required>
+                    </div>
 
 
                     <hr class="my-4">
-
-                    <button type="button" class="btn btn-success">คำนวณค่าขนส่ง</button>
+                    <div class="col-md-6">
+                    <button type="submit" name="insert" class="btn btn-success">คำนวณค่าขนส่ง</button>
                     <button type="button" class="btn btn-danger">ยกเลิก</button>
                     <button type="button" class="btn btn-light"><a href="/look/index.php"> ย้อนกลับ</a></button>
-                </form><br><br>
+               
+                    </div>
+                </div>
 
-                <?php
-         //หาค่าเงิน ระหว่างประเทศ
-         function getTotal($Thai,$China) {
-             return $Thai * $China;
-         }
-         $Thai =  25;
-         $China = 5;
-                   print("- สกุลเงินไทย".$Thai." บาท");
-                   print("- สกุลเงินจีน" .$China." หยวน");
-                   print("<br>");
-                   $total = getTotal($Thai,$China);
-                   Print("- ราคาสินค้าต่อชิ้น ".$total."บาท");
-                   print("<br>");
-                                    
-          //หาราคาต่อชิ้น
-          function getppp( $total,$number3) {
-            return $total * $number3;
-              
-          }
-          $number1 =  100; //ราคาสินค้าต่อชิ้น*
-          $number2 = 150;   //ราคาขาย
-          $number3 =  3; //จำนวนสินค้า
-          $number4 = 44;   //ค่านำเข้าสินค้าเข้าโกดังจีน
-          $number5 = 28;   //ค่านำเข้าสินค้าเข้าโกดังไทย
-          $number6 = 7;   //ภาษี
-        
-          $ppp = getppp($total,$number3);
-          print("- จำนวน" .$number3." ชิ้น");
-          print("<br>");
-          Print("- ราคารวม ".$ppp."บาท");
-
-              //หาราคาต่อชิ้น
-    function gettax($number7,$number8) {
-        return $number8 / $number8 ;
-          
-      }
-      $number7 = 7; 
-      $number8 = 100; 
-    
-      $tax = getppp( $number8,$number7);
-      print("- ภาษี" .$number7."%");
-      print("<br>");
-      Print("- หลังจากหักภาษี ".$tax."บาท");
-     ?>
+            </form><br><br>
             </div>
+ </div>
+ </div>
+
         </div>
-    </div>
+        </div>
+        </div>
     </main>
 </body>
