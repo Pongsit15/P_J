@@ -13,26 +13,26 @@
   <title>ฟ้ารุ่ง 2014</title>
 </head>
 
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom text-bg-dark">
+<a href=""></a>
+<ul class="nav nav-pills">
+  <li class="nav-item"><a href="./tesr.php" class="nav-link active" aria-current="page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+    class="bi bi-file-spreadsheet" viewBox="0 0 16 16">
+    <path
+    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6h-3v2h3V7zm0 3h-3v2h3v-2zm0 
+    3h-3v2h2a1 1 0 0 0 1-1v-1zm-4 2v-2H6v2h3zm-4 0v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2zm3-2v2h3V7H6zm3 3H6v2h3v-2z" />
+  </svg> คำนวณค่าขนส่ง</a></li>
+  <li class="nav-item"><a href="../look/oo/index.php" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+  width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+  <path fill-rule="evenodd"
+  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+</svg> เข้าสู่ระบบ</a></li>
+</ul>
+</header>
 <body>
 
-        <header
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-              <use xlink:href="#bootstrap"></use>
-            </svg>
-            <h3 class="fw-normal">ห้างหุ้นส่วนจำกัด ฟ้ารุ่งชนธวัช 2014</h3>
-          </a>
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="./tesr.php" class="nav-link active" aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-spreadsheet" viewBox="0 0 16 16">
-        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6h-3v2h3V7zm0 3h-3v2h3v-2zm0 3h-3v2h2a1 1 0 0 0 1-1v-1zm-4 2v-2H6v2h3zm-4 0v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2zm3-2v2h3V7H6zm3 3H6v2h3v-2z"/>
-      </svg> คำนวณค่าขนส่ง</a></li>
-            <li class="nav-item" type="button" class="btn btn-outline-primary"><a href="../look/oo/index.php" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-      </svg> เข้าสู่ระบบ</a></li>
-          </ul>
-        </header>
       
   <main>
     
@@ -50,6 +50,8 @@
           <rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></img><br>
           <h2 class="fw-normal">ผ้าไหม</h2>
           <p>ชุดผ้าฝ้ายพิมพ์ลาย หมักโคลนเนื้อนิ่ม ตัดมาแล้วเป็นพันชุด ถูกใจคนทรงใหญ่ มีบริการเปลี่ยนไซส์หากใส่ไม่ได้</p>
+          <button class="btn"> Button
+</button>
           <!-- <p><a class="btn btn-secondary" href="#">รายละเอียด</a></p> -->
        
         </div><!-- /.col-lg-4 -->
